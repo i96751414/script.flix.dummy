@@ -10,7 +10,7 @@ class DummyProvider(Provider):
     def search(self, query):
         return []
 
-    def search_movie(self, tmdb_id, title, year, titles):
+    def search_movie(self, tmdb_id, title, titles, year=None):
         return [
             ProviderResult(
                 label="Ignored result",
@@ -37,6 +37,11 @@ class DummyProvider(Provider):
                     "url": "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.ogv",
                 }
             ),
+            ProviderResult(
+                label="Check input args",
+                label2="tmdb_id={}, title={}, titles={}, year={}".format(tmdb_id, title, titles, year),
+                url="-",
+            ),
         ]
 
     def search_episode(self, tmdb_id, show_title, season_number, episode_number, titles):
@@ -46,6 +51,12 @@ class DummyProvider(Provider):
                 label2="This will then call resolve method (which will call youtube for this case)",
                 icon=ADDON_ICON,
                 provider_data={"youtube": "aqz-KE-bpKQ"}
+            ),
+            ProviderResult(
+                label="Check input args",
+                label2="tmdb_id={}, show_title={}, season_number={}, episode_number={}, titles={}".format(
+                    tmdb_id, show_title, season_number, episode_number, titles),
+                url="-",
             ),
         ]
 
