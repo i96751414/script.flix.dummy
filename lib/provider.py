@@ -1,7 +1,6 @@
 from flix.kodi import ADDON_ICON
 from flix.provider import Provider, ProviderResult
 from xbmc import executebuiltin
-from xbmcgui import ListItem
 from xbmcplugin import setResolvedUrl
 
 
@@ -60,16 +59,14 @@ class DummyProvider(Provider):
             ),
         ]
 
-    def resolve(self, handle, item, provider_data):
+    def resolve(self, handle, list_item, provider_data):
         if isinstance(provider_data, dict):
             if "youtube" in provider_data:
                 executebuiltin("RunPlugin(plugin://plugin.video.youtube/play/?video_id={})".format(
                     provider_data["youtube"]))
                 return None
             elif "path" in provider_data:
-                list_item = ListItem(item["title"], path=provider_data["path"])
-                list_item.setInfo("video", item["info"])
-                list_item.setArt(item["art"])
+                list_item.setPath(provider_data["path"])
                 setResolvedUrl(handle, True, list_item)
                 return None
             elif "url" in provider_data:
