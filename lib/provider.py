@@ -5,13 +5,13 @@ from xbmcgui import ListItem
 from xbmcplugin import setResolvedUrl
 
 
-# noinspection PyMethodMayBeStatic,PyUnusedLocal
+# noinspection PyMethodMayBeStatic
 class DummyProvider(Provider):
     def search(self, query):
         return [
             ProviderResult(
                 label="Big Buck Bunny",
-                label2="Blender Foundation - archive.org - 720p",
+                label2="Blender Foundation - archive.org - 720p - query:" + query,
                 icon=ADDON_ICON,
                 url="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
             ),
