@@ -60,7 +60,7 @@ class DummyProvider(Provider):
     def resolve(self, provider_data):
         if isinstance(provider_data, dict):
             if "youtube" in provider_data:
-                return "plugin://plugin.video.youtube/play/?video_id={})".format(provider_data["youtube"])
+                return "plugin://plugin.video.youtube/play/?video_id={}".format(provider_data["youtube"])
             elif "url" in provider_data:
                 return provider_data["url"]
 
