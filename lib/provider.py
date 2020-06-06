@@ -41,6 +41,25 @@ class DummyProvider(Provider):
             ),
         ]
 
+    def search_show(self, tmdb_id, show_title, titles):
+        return [
+            ProviderResult(
+                label="Check input args",
+                label2="tmdb_id={}, show_title={}, titles={}".format(tmdb_id, show_title, titles),
+                url="-",
+            ),
+        ]
+
+    def search_season(self, tmdb_id, show_title, season_number, titles):
+        return [
+            ProviderResult(
+                label="Check input args",
+                label2="tmdb_id={}, show_title={}, season_number={}, titles={}".format(
+                    tmdb_id, show_title, season_number, titles),
+                url="-",
+            ),
+        ]
+
     def search_episode(self, tmdb_id, show_title, season_number, episode_number, titles):
         return [
             ProviderResult(
