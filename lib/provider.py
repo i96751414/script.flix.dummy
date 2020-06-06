@@ -2,7 +2,6 @@ from flix.kodi import ADDON_ICON
 from flix.provider import Provider, ProviderResult
 
 
-# noinspection PyMethodMayBeStatic
 class DummyProvider(Provider):
     def search(self, query):
         return [
