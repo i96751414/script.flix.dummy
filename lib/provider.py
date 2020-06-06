@@ -40,11 +40,11 @@ class DummyProvider(Provider):
             ),
         ]
 
-    def search_show(self, tmdb_id, show_title, titles):
+    def search_show(self, tmdb_id, show_title, titles, year=None):
         return [
             ProviderResult(
                 label="Check input args",
-                label2="tmdb_id={}, show_title={}, titles={}".format(tmdb_id, show_title, titles),
+                label2="tmdb_id={}, show_title={}, titles={}, year={}".format(tmdb_id, show_title, titles, year),
                 url="-",
             ),
         ]
