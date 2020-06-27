@@ -1,6 +1,7 @@
 script.flix.dummy
 =================
 A dummy provider for `Flix`_, mainly used for testing providers integration.
+It's core implementation can be found on `provider.py <lib/provider.py>`_ file.
 
 What is a provider?
 -------------------
